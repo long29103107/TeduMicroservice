@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Public\**" />
+    <Content Remove="Public\**" />
+    <EmbeddedResource Remove="Public\**" />
+    <None Remove="Public\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="docker-compose.yml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Duende.IdentityServer" Version="6.1.5" />
+    <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.1.5" />
+    <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="6.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
+
+    <PackageReference Include="Serilog.AspNetCore" Version="6.1.0-dev-00281" />
+
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.1-dev-00787" />
+
+    <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="9.0.0-beta7" />
+
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\TeduMicroservice.IDP.Infrastructure\TeduMicroservice.IDP.Infrastructure.csproj" />
+    <ProjectReference Include="..\TeduMicroservice.IDP.Presentation\TeduMicroservice.IDP.Presentation.csproj" />
+  </ItemGroup>
+</Project>
